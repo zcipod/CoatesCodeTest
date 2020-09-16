@@ -1,0 +1,6 @@
+{
+  "httpMethod": "DELETE",
+  "pathParameters": {
+    "name": "name1"
+  }
+}

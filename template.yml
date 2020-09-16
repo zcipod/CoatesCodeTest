@@ -14,7 +14,7 @@ Resources:
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
-      Description: A simple example includes a HTTP get method to get all items from a DynamoDB table.
+      Description: Use GET method to get all items from a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref SampleTable
@@ -35,7 +35,7 @@ Resources:
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
-      Description: A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
+      Description: Use GET method to get one item by id from a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref SampleTable
@@ -56,7 +56,49 @@ Resources:
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
-      Description: A simple example includes a HTTP post method to add one item to a DynamoDB table.
+      Description: Use PUT method to update one item to a DynamoDB table.
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SampleTable
+      Environment:
+        Variables:
+          SAMPLE_TABLE: !Ref SampleTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{name}
+            Method: PUT
+
+  deleteByNameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/delete-by-name.deleteByNameHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: Use DELETE method to delete one item by name from a DynamoDB table.
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SampleTable
+      Environment:
+        Variables:
+          SAMPLE_TABLE: !Ref SampleTable
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{name}
+            Method: DELETE
+
+  createItemFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/create-item.createItemHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: Use POST method to create one item to a DynamoDB table.
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref SampleTable
@@ -68,7 +110,7 @@ Resources:
           Type: Api
           Properties:
             Path: /
-            Method: PUT
+            Method: POST
 
   SampleTable:
     TableName: CoatesTest

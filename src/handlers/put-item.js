@@ -8,7 +8,6 @@ exports.putItemHandler = async (event) => {
     if (event.httpMethod !== 'PUT') {
         throw new Error(`This function only accepts PUT method, you tried: ${event.httpMethod} method.`);
     }
-    // All log statements are written to CloudWatch
     console.info('received:', event);
 
     const body = JSON.parse(event.body)
@@ -17,7 +16,7 @@ exports.putItemHandler = async (event) => {
     const age = body.age;
     const dateOfBirth = body.dateOfBirth;
 
-    var params = {
+    let params = {
         TableName : tableName,
         Item: { name : name, email: email, age: age, dateOfBirth:  dateOfBirth }
     };
@@ -29,7 +28,6 @@ exports.putItemHandler = async (event) => {
         body: JSON.stringify(body)
     };
 
-    // All log statements are written to CloudWatch
     console.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);
     return response;
 }
