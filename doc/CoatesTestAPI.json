@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "c66b1835-a3fb-4c7a-81c6-58da43209354",
+		"name": "CoatesTest",
+		"description": "This is a simple RESTul backend API based on aws serverless framework, for the code test of Coates Engineering Team.\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"name1\",\"email\": \"name3@email.com\", \"age\": \"10\", \"dateOfBirth\": \"16/09/2010\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://q43x4l8ige.execute-api.ap-southeast-2.amazonaws.com/Prod/",
+					"protocol": "https",
+					"host": [
+						"q43x4l8ige",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						""
+					]
+				},
+				"description": "This is a POST method on \"/\" to create a user with the data in the body of request.\nIf the name of the user trying to create is exist, it will raise a \"User exist\" error."
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"name3\",\"email\": \"name1@email.com\", \"age\": \"10\", \"dateOfBirth\": \"16/09/2010\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://q43x4l8ige.execute-api.ap-southeast-2.amazonaws.com/Prod/name3",
+					"protocol": "https",
+					"host": [
+						"q43x4l8ige",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"name3"
+					]
+				},
+				"description": "This is a PUT method on \"/{name}\"  to update the user with the name of \"name\".\nIf the user is not exist, a new user will be create."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://q43x4l8ige.execute-api.ap-southeast-2.amazonaws.com/Prod/name3",
+					"protocol": "https",
+					"host": [
+						"q43x4l8ige",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"name3"
+					]
+				},
+				"description": "This is a DELETE method on \"/{name}\" to delete the user with the name of \"name\"."
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://q43x4l8ige.execute-api.ap-southeast-2.amazonaws.com/Prod/",
+					"protocol": "https",
+					"host": [
+						"q43x4l8ige",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						""
+					]
+				},
+				"description": "This is a GET method on '/' to scan all the users in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://q43x4l8ige.execute-api.ap-southeast-2.amazonaws.com/Prod/name2",
+					"protocol": "https",
+					"host": [
+						"q43x4l8ige",
+						"execute-api",
+						"ap-southeast-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"name2"
+					]
+				},
+				"description": "This is a GET method on \"/{name}\" to get the information of user with the name of \"name\"."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9e5efc66-8205-461c-bf74-a382264306eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fa0a38cc-36b8-4ec9-af2e-b521e289ca75",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
