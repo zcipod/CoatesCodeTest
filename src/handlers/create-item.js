@@ -23,8 +23,8 @@ exports.createItemHandler = async (event) => {
 
     const data = await docClient.get(params).promise();
     const item = data.Item;
-    let response
-    console.info(`item: ${item}`)
+    let response;
+    console.info(`item: ${item}`);
 
     if (item !== undefined){
         response = {
